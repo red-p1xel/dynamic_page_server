@@ -8,4 +8,3 @@ Dynamic Page Building API Skeleton for create server-side of single page applica
 $ docker-compose stop; docker-compose rm
 $ docker-compose build; docker-compose up -d; docker exec -it -u dev php bash
 ```
-   
