@@ -38,6 +38,9 @@
 # Build data
 /build/
 
+# IDE
+/.idea/
+
 # Composer PHAR
 /composer.phar
 

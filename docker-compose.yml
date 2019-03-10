@@ -1,0 +1,45 @@
+version: '3'
+services:
+
+  apache:
+    build: .docker/apache
+    container_name: apache
+    environment:
+      XDEBUG_CONFIG: idekey=PHPSTORM
+    ports:
+      - 8181:80
+    restart: always
+    volumes:
+      - .docker/config/vhosts:/etc/apache2/sites-enabled
+      - .:/var/www/app:cached
+    depends_on:
+      - php
+  db:
+    image: mysql
+    container_name: db
+    command: "--default-authentication-plugin=mysql_native_password"
+    ports:
+      - 3339:3306
+    restart: always
+    volumes:
+      - .docker/data/db:/var/lib/mysql:cached
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+
+  php:
+    build: .docker/php
+    container_name: php
+    ports:
+      - 9990:9001
+    restart: always
+    volumes:
+      - .:/var/www/app:cached
+      - ./logs:/var/www/app/var/log:cached
+    depends_on:
+      - db
+    extra_hosts:
+      - docker-host.localhost:127.0.0.1
+    ### change 127.0.0.1 to your local ip address
