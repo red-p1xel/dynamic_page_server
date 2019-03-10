@@ -11,7 +11,7 @@ services:
       - 8181:80
     volumes:
       - .docker/config/vhosts:/etc/apache2/sites-enabled
-      - .:/var/www/app:cached
+      - .:/var/www/app
     depends_on:
       - php
 
@@ -38,8 +38,8 @@ services:
     ports:
       - 9990:9001
     volumes:
-      - .:/var/www/app:cached
-      - ./logs:/var/www/app/var/log:cached
+      - .:/var/www/app
+      - ./logs:/var/www/app/var/log
     depends_on:
       - db
     extra_hosts:
