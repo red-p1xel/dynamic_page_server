@@ -12,6 +12,7 @@
         "symfony/dotenv": "4.2.*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.2.*",
+        "symfony/maker-bundle": "^1.11",
         "symfony/orm-pack": "^1.0",
         "symfony/security": "4.2.*",
         "symfony/serializer-pack": "^1.0",
@@ -65,7 +66,6 @@
     "require-dev": {
         "deployer/deployer": "^6.4",
         "friendsofphp/php-cs-fixer": "^2.14",
-        "symfony/debug-pack": "^1.0",
-        "symfony/maker-bundle": "^1.11"
+        "symfony/debug-pack": "^1.0"
     }
 }
